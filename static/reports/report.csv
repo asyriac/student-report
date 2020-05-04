@@ -1,0 +1,5 @@
+"id","name","college","batch","placement_status","dsa_score","web_score","react_score","company_name","interview_date","status"
+"5eaf31b740079f309007b428","John","ADV","October 2019","Not placed",23,0,0,"Google","Sat May 23 2020","FAIL"
+"5eaf31c040079f309007b429","Doe","DCBA","October 2019","Not placed",1,2,3,"Google","Sat May 23 2020","PASS"
+"5eaf31b740079f309007b428","John","ADV","October 2019","Not placed",23,0,0,"Yahoo","Fri May 29 2020","APPLIED"
+"5eaf31c040079f309007b429","Doe","DCBA","October 2019","Not placed",1,2,3,"Microsoft","Sat May 23 2020","APPLIED"

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <title><%=title%></title>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-primary">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link text-white" href="/employee/home">Home</a>
+          <a class="nav-item nav-link text-white" href="/interview/view-all">All-Interviews</a>
+          <a class="nav-item nav-link text-white" href="/interview/apply">Apply</a>
+          <a class="nav-item nav-link text-white" href="/employee/sign-out">Signout</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1 class="text-center my-4 display-4">Company Name : <%=interview.company_name%> </h1>
+        <h1 class="text-center my-4 display-4">Inteview date : <%=(interview.date).toDateString()%></h1>
+        <%if(errorMessage.length>0){%>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <%=errorMessage%>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <%}%>
+        <table class="table text-center table-striped my-5">
+          <tr>
+            <th>
+              Student name
+            </th>
+            <th>
+              Current Status
+            </th>
+            <th>
+                Update status
+              </th>
+            <th>Action</th>
+          </tr>
+          <!-- Iterating over todo list tasks and printing them -->
+          <%for(let student of students){%>
+            
+        <form action="/interview/update/<%=interview.id%>/<%=student.id%>" method="POST">
+          <tr>
+            <td><%=student.student_details.name%></td>
+            <td><%=student.result%></td>
+            <td>
+                <select class="form-control" id="placement_status" name="placement_status" required> 
+                    <option value="" selected disabled hidden>Select status</option>
+                    <option>PASS</option>
+                    <option>FAIL</option>
+                    <option>ON HOLD</option>
+                    <option>DID NOT ATTEMPT</option>
+                  </select>
+            </td>
+            <td><button type="submit" class="btn btn-primary">Update</a></td>
+           
+          </tr>
+        </form>
+          <%}%>
+        </table>  
+    </div>
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
